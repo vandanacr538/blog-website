@@ -9,11 +9,13 @@ const Blog = () =>{
     const [editForm, setEditForm] = useState("");
 
     const openFormHandler=()=>{
+        setEditForm("");
         setIsFormOpen(true);
     }
 
     const closeFormHandler=()=>{
         setIsFormOpen(false);
+        setEditForm("");
     }
 
     const openFormToEditHandler=(blogToEdit)=>{
