@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Modal from "../UI/Modal";
+import BlogContext from "../../store/blog-context";
 
 const BlogForm = (props) => {
+  const blogCtx=useContext(BlogContext);  
+  const {editForm} = props;  
   const [imageUrl, setImageUrl] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  useEffect(()=>{
+    if(editForm){
+        setImageUrl(editForm.imageUrl);
+        setTitle(editForm.title);
+        setDescription(editForm.description);
+    }
+  }, [editForm]);
 
   const imageUrlChangeHandler = (event) => {
     setImageUrl(event.target.value);
@@ -20,12 +31,19 @@ const BlogForm = (props) => {
 
   const addBlogHandler=(event)=>{
     event.preventDefault();
+    const newID = Math.random().toString();
     const blogData={
+        id: (editForm ? editForm.id : newID),
         imageUrl: imageUrl,
         title: title,
         description: description,
     }
-    console.log(blogData);
+    if(editForm){
+        blogCtx.editBlog(blogData);
+    }
+    else{
+        blogCtx.addBlog(blogData);
+    }
     props.onClose();
   }
 
@@ -59,7 +77,9 @@ const BlogForm = (props) => {
             onChange={descriptionChangeHandler}
           ></input>
         </div>
-        <button type="submit" onClick={addBlogHandler}>POST BLOG</button>
+        <button type="submit" onClick={addBlogHandler}>
+            {editForm ? "Update Blog" : "POST BLOG"}
+        </button>
         <button onClick={props.onClose}>Close</button>
       </form>
     </Modal>

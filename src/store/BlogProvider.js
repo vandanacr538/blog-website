@@ -9,6 +9,23 @@ const BlogProvider=(props)=>{
         description: "placeholder abbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbxajkshhjkkk"
     }]);
 
+    const addBlogHandler=(newBlog)=>{
+        setBlogs((prevBlogs)=>{
+            return [...prevBlogs, newBlog];
+        });
+    }
+
+    const editBlogHandler=(editedBlog)=>{
+        setBlogs((prevBlogs)=>{
+            return prevBlogs.map((blog)=>{
+                if(blog.id===editedBlog.id){
+                    return {...blog, ...editedBlog};
+                }
+                return blog;
+            })
+        })
+    }
+
     const deleteBlogHandler=(id)=>{
         console.log(id)
         setBlogs((prevBlogs)=>{
@@ -18,6 +35,8 @@ const BlogProvider=(props)=>{
 
     const blogContext={
         blogs : blogs,
+        addBlog: addBlogHandler,
+        editBlog: editBlogHandler,
         deleteBlog: deleteBlogHandler
     }
 

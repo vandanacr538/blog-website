@@ -6,6 +6,7 @@ import BlogsList from "./BlogsList";
 
 const Blog = () =>{
     const [isFormOpen, setIsFormOpen] = useState(false);
+    const [editForm, setEditForm] = useState("");
 
     const openFormHandler=()=>{
         setIsFormOpen(true);
@@ -15,14 +16,19 @@ const Blog = () =>{
         setIsFormOpen(false);
     }
 
+    const openFormToEditHandler=(blogToEdit)=>{
+        setEditForm(blogToEdit);
+        setIsFormOpen(true);
+    }
+
     return(
         <BlogProvider>
             <div className="blog">
-                {isFormOpen && <BlogForm  onClose={closeFormHandler}/>}
+                {isFormOpen && <BlogForm  editForm={editForm} onClose={closeFormHandler}/>}
                 <h1>Blog Website</h1>
                 <button onClick={openFormHandler}>Add Blog</button>
             </div>
-            <BlogsList></BlogsList>
+            <BlogsList onEdit={openFormToEditHandler}></BlogsList>
         </BlogProvider>
     )
 }

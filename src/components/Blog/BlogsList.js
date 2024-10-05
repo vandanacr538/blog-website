@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import BlogContext from "../../store/blog-context";
 
-const BlogsList=()=>{
+const BlogsList=(props)=>{
     const blogCtx=useContext(BlogContext);
 
     const {deleteBlog} = blogCtx;
@@ -15,7 +15,7 @@ const BlogsList=()=>{
                         <h2>{blog.title}</h2>
                         <img src={blog.imageUrl} alt={blog.title}></img>
                         <p>{blog.title}</p>
-                        <button>Edit Blog</button>
+                        <button onClick={()=>props.onEdit(blog)}>Edit Blog</button>
                         <button onClick={()=>deleteBlog(blog.id)}>Delete Blog</button>
                     </div>
                 )
