@@ -3,6 +3,10 @@ import BlogContext from "../../store/blog-context";
 
 const BlogsList=()=>{
     const blogCtx=useContext(BlogContext);
+
+    const {deleteBlog} = blogCtx;
+
+
     return (
         <div>
             {blogCtx.blogs.map((blog)=>{
@@ -12,7 +16,7 @@ const BlogsList=()=>{
                         <img src={blog.imageUrl} alt={blog.title}></img>
                         <p>{blog.title}</p>
                         <button>Edit Blog</button>
-                        <button>Delete Blog</button>
+                        <button onClick={()=>deleteBlog(blog.id)}>Delete Blog</button>
                     </div>
                 )
             })}
