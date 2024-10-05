@@ -1,6 +1,6 @@
 import Modal from "../UI/Modal";
 
-const BlogForm = () => {
+const BlogForm = (props) => {
   return (
     <Modal>
       <form>
@@ -17,7 +17,7 @@ const BlogForm = () => {
           <input type="text" id="description"></input>
         </div>
         <button type="submit">POST BLOG</button>
-        <button>Close</button>
+        <button onClick={props.onClose}>Close</button>
       </form>
     </Modal>
   );
