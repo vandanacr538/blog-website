@@ -1,10 +1,11 @@
+import React from "react";
 import Blog from "./components/Blog/Blog";
 
 function App() {
   return (
-    <div>
+    <React.Fragment>
       <Blog />
-    </div>
+    </React.Fragment>
   );
 }
 

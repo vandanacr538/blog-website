@@ -1,0 +1,36 @@
+.blog-item{
+    background-color: #eee;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    width: 20%;
+    flex: 20%;
+    position: relative;
+    max-width: 20%;
+}
+
+.blog-item h2{
+    margin: 0px;
+}
+
+.blog-item p{
+    margin: 0;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.blog-item img{
+    width: 85%;
+    margin: 15px 0px;
+}
+
+.item-actions{
+    display: flex;
+}
+
+.item-actions button{
+    background-color: #8f7b7b;
+    border: 1px solid #8f7b7b;
+    padding: 10px 13px;
+    font-size: 12px;
+    margin: 10px 15px 0px 0px;
+}

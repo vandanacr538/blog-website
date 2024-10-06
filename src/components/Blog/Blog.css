@@ -1,3 +1,8 @@
 .blog{
     text-align: center;
 }
+
+.blog button{
+    background-color: #778dca;
+    border: 1px solid #778dca;
+}
