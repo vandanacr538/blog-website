@@ -4,9 +4,9 @@ import BlogContext from "./blog-context";
 const BlogProvider=(props)=>{
     const [blogs, setBlogs] = useState([{
         id: "1",
-        imageUrl: "https://via.placeholder.com/150",
-        title: "Placeholder",
-        description: "placeholder abbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbxajkshhjkkk"
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkqiYUmvFaIwvoBs0vU2cJLRk8qWZAhZ165w&s",
+        title: "Nature",
+        description: "This is a nature image"
     }]);
 
     const addBlogHandler=(newBlog)=>{

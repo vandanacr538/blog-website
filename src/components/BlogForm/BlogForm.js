@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Modal from "../UI/Modal";
 import BlogContext from "../../store/blog-context";
+import "./BlogForm.css";
 
 const BlogForm = (props) => {
   const blogCtx=useContext(BlogContext);  
@@ -49,8 +50,8 @@ const BlogForm = (props) => {
 
   return (
     <Modal>
-      <form>
-        <div>
+      <form className="blog-form">
+        <div className="blog-control img-control"> 
           <label htmlFor="image-url">Image Url</label>
           <input
             type="url"
@@ -59,7 +60,7 @@ const BlogForm = (props) => {
             onChange={imageUrlChangeHandler}
           ></input>
         </div>
-        <div>
+        <div className="blog-control">
           <label htmlFor="title">Title</label>
           <input
             type="text"
@@ -68,7 +69,7 @@ const BlogForm = (props) => {
             onChange={titleChangeHandler}
           ></input>
         </div>
-        <div>
+        <div className="blog-control">
           <label htmlFor="description">Blog Description</label>
           <input
             type="text"
@@ -77,10 +78,12 @@ const BlogForm = (props) => {
             onChange={descriptionChangeHandler}
           ></input>
         </div>
-        <button type="submit" onClick={addBlogHandler}>
-            {editForm ? "Update Blog" : "POST BLOG"}
-        </button>
-        <button onClick={props.onClose}>Close</button>
+        <div className="blog-form-actions">
+          <button type="submit" onClick={addBlogHandler}>
+              {editForm ? "Update Blog" : "POST BLOG"}
+          </button>
+          <button onClick={props.onClose}>Close</button>
+        </div>
       </form>
     </Modal>
   );

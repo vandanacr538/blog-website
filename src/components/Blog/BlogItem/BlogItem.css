@@ -1,11 +1,12 @@
 .blog-item{
-    background-color: #eee;
     padding: 15px 20px;
     box-sizing: border-box;
     width: 20%;
     flex: 20%;
     position: relative;
     max-width: 20%;
+    max-height: 10%;
+    margin: 10px
 }
 
 .blog-item h2{
@@ -20,6 +21,7 @@
 
 .blog-item img{
     width: 85%;
+    height: 200px;
     margin: 15px 0px;
 }
 
