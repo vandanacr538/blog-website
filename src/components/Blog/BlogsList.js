@@ -3,10 +3,10 @@ import BlogContext from "../../store/blog-context";
 import BlogItem from "./BlogItem/BlogItem";
 import "./BlogList.css";
 
-const BlogsList=(props)=>{
+const BlogsList=()=>{
     const blogCtx=useContext(BlogContext);
 
-    const {deleteBlog} = blogCtx;
+    const {openFormToEditHandler, deleteBlog} = blogCtx;
 
     return (
         <div className="blog-list">
@@ -15,7 +15,7 @@ const BlogsList=(props)=>{
                     <BlogItem 
                         key={blog.id}
                         blog={blog}
-                        onEdit={props.onEdit}
+                        onEdit={openFormToEditHandler}
                         deleteBlog={deleteBlog}
                     />
                 )

@@ -3,9 +3,9 @@ import Modal from "../UI/Modal";
 import BlogContext from "../../store/blog-context";
 import "./BlogForm.css";
 
-const BlogForm = (props) => {
+const BlogForm = () => {
   const blogCtx=useContext(BlogContext);  
-  const {editForm} = props;  
+  const {editForm, closeFormHandler, addBlog, editBlog} = blogCtx; 
   const [imageUrl, setImageUrl] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -30,8 +30,9 @@ const BlogForm = (props) => {
     setDescription(event.target.value);
   };
 
-  const addBlogHandler=(event)=>{
+  const blogFormSubmitHandler=(event)=>{
     event.preventDefault();
+    console.log("open")
     const newID = Math.random().toString();
     const blogData={
         id: (editForm ? editForm.id : newID),
@@ -40,12 +41,12 @@ const BlogForm = (props) => {
         description: description,
     }
     if(editForm){
-        blogCtx.editBlog(blogData);
+        editBlog(blogData);
     }
     else{
-        blogCtx.addBlog(blogData);
+        addBlog(blogData);
     }
-    props.onClose();
+    closeFormHandler();
   }
 
   return (
@@ -79,10 +80,10 @@ const BlogForm = (props) => {
           ></input>
         </div>
         <div className="blog-form-actions">
-          <button type="submit" onClick={addBlogHandler}>
+          <button type="submit" onClick={blogFormSubmitHandler}>
               {editForm ? "Update Blog" : "POST BLOG"}
           </button>
-          <button onClick={props.onClose}>Close</button>
+          <button onClick={closeFormHandler}>Close</button>
         </div>
       </form>
     </Modal>

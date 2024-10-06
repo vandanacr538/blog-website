@@ -8,6 +8,23 @@ const BlogProvider=(props)=>{
         title: "Nature",
         description: "This is a nature image"
     }]);
+    const [isFormOpen, setIsFormOpen] = useState(false);
+    const [editForm, setEditForm] = useState("");
+
+    const openFormHandler=()=>{
+        setEditForm("");
+        setIsFormOpen(true);
+    }
+
+    const closeFormHandler=()=>{
+        setIsFormOpen(false);
+        setEditForm("");
+    }
+
+    const openFormToEditHandler=(blogToEdit)=>{
+        setEditForm(blogToEdit);
+        setIsFormOpen(true);
+    }
 
     const addBlogHandler=(newBlog)=>{
         setBlogs((prevBlogs)=>{
@@ -35,6 +52,11 @@ const BlogProvider=(props)=>{
 
     const blogContext={
         blogs : blogs,
+        isFormOpen: isFormOpen,
+        editForm: editForm,
+        openFormHandler,
+        closeFormHandler,
+        openFormToEditHandler,
         addBlog: addBlogHandler,
         editBlog: editBlogHandler,
         deleteBlog: deleteBlogHandler
