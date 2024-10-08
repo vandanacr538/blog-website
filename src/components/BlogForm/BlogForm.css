@@ -26,9 +26,24 @@
     max-width: 100%
 }
 
+.blog-control.invalid input{
+    border-color: red;
+}
+
+.blog-control p{
+    display: none;
+}
+
+.blog-control.invalid p{
+    color: red;
+    font-size: 12px;
+    margin: 5px 5px 0px;
+    display: block;
+}
   
 .blog-form-actions {
     text-align: right;
+    margin-top: 15px;
 }
 
 .blog-form-actions button{
