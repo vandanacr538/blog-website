@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import "./Modal.css";
+import BlogContext from "../../store/blog-context";
 
 const Backdrop = () => {
-  return <div className="backdrop"></div>;
+  const {closeFormHandler} = useContext(BlogContext);
+  return <div className="backdrop" onClick={closeFormHandler}></div>;
 };
 
 const ModalOverlay = (props) => {
