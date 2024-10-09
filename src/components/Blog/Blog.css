@@ -6,3 +6,9 @@
     background-color: #778dca;
     border: 1px solid #778dca;
 }
+
+.blog hr{
+    height: 1px;
+    border: none;
+    background-color: #ccc;
+}

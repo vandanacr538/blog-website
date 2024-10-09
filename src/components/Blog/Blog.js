@@ -15,6 +15,7 @@ const Blog = () =>{
                 {isFormOpen && <BlogForm/>}
                 <h1>Blog Website</h1>
                 <Button type="button" onClick={openFormHandler}>Add New Blog</Button>
+                <hr></hr>
             </div>
             <BlogsList />
         </React.Fragment>

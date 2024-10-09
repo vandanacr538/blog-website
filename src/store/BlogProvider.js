@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import BlogContext from "./blog-context";
 
 const BlogProvider=(props)=>{
-    const [blogs, setBlogs] = useState([{
-        id: "1",
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkqiYUmvFaIwvoBs0vU2cJLRk8qWZAhZ165w&s",
-        title: "Nature",
-        description: "This is a nature image"
-    }]);
+    const [blogs, setBlogs] = useState([]);
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [editForm, setEditForm] = useState("");
 

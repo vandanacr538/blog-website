@@ -7,7 +7,9 @@ const BlogItem = (props) => {
     return (
         <div className="blog-item">
             <h2>{blog.title}</h2>
-            <img src={blog.imageUrl} alt={blog.title}></img>
+            <div className="image-container">
+                <img src={blog.imageUrl} alt={blog.title}></img>
+            </div>
             <p>{blog.description}</p>
             <div className="item-actions">
                 <Button type="button" onClick={() => onEdit(blog)}>Edit Blog</Button>
